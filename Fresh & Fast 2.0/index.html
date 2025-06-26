@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh & Fast - Delicious Food Delivered</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-utensils"></i>
+                <span>Fresh & Fast</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#feedback" class="nav-link">Feedback</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <button class="user-btn" id="userBtn">
+                        <i class="fas fa-user"></i>
+                        <span id="userNameDisplay">Guest</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info" id="userInfo">
+                            <div class="user-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="user-details">
+                                <span class="user-name" id="dropdownUserName">Guest User</span>
+                                <span class="user-email" id="dropdownUserEmail">guest@example.com</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" id="profileBtn"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" id="ordersBtn"><i class="fas fa-receipt"></i> My Orders</a>
+                            <a href="#" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="#" id="logoutBtn" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Delicious Food <span class="highlight">Delivered Fast</span></h1>
+                    <p>Experience the perfect blend of fresh ingredients and lightning-fast delivery. Your favorite meals are just a click away!</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('menu')">
+                            <i class="fas fa-utensils"></i> View Menu
+                        </button>
+                        <button class="btn btn-secondary" id="orderNowBtn">
+                            <i class="fas fa-rocket"></i> Order Now
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="food-card">
+                        <div class="food-image"></div>
+                        <h3>Today's Special</h3>
+                        <p>Margherita Pizza</p>
+                        <span class="price">₹399</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Min Delivery</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu">
+            <div class="container">
+                <h2 class="section-title">Our Menu</h2>
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pizza">Pizza</button>
+                    <button class="filter-btn" data-filter="burger">Burgers</button>
+                    <button class="filter-btn" data-filter="pasta">Pasta</button>
+                    <button class="filter-btn" data-filter="salad">Salads</button>
+                </div>
+                <div class="menu-grid" id="menuGrid">
+                    <!-- Menu items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Why Choose Fresh & Fast?</h2>
+                        <p>We're passionate about delivering exceptional food experiences with unmatched speed and quality.</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <h3>Fresh Ingredients</h3>
+                                    <p>Sourced daily from local farms</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shipping-fast"></i>
+                                <div>
+                                    <h3>Lightning Fast</h3>
+                                    <p>15-minute average delivery time</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h3>Quality Guaranteed</h3>
+                                    <p>100% satisfaction or money back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-chef-hat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="feedback">
+            <div class="container">
+                <h2 class="section-title">Customer Feedback</h2>
+                <div class="feedback-content">
+                    <div class="feedback-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="averageRating">4.8</h3>
+                                <p>Average Rating</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalReviews">1,247</h3>
+                                <p>Total Reviews</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-thumbs-up"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>96%</h3>
+                                <p>Satisfaction Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-form-section">
+                        <h3>Share Your Experience</h3>
+                        <form class="feedback-form" id="feedbackForm">
+                            <div class="rating-input">
+                                <label>Rate your experience:</label>
+                                <div class="star-rating" id="starRating">
+                                    <i class="fas fa-star" data-rating="1"></i>
+                                    <i class="fas fa-star" data-rating="2"></i>
+                                    <i class="fas fa-star" data-rating="3"></i>
+                                    <i class="fas fa-star" data-rating="4"></i>
+                                    <i class="fas fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="rating" value="0">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="reviewerName" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="reviewText" name="review" placeholder="Tell us about your experience..." rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Review
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="reviews-section">
+                    <h3>Recent Reviews</h3>
+                    <div class="reviews-grid" id="reviewsGrid">
+                        <!-- Reviews will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>123 Food Street, Mumbai, Maharashtra 400001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>hello@freshfast.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Hours</h3>
+                                <p>Mon-Sun: 10:00 AM - 11:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Profile Page -->
+    <div id="profilePage" class="page-content" style="display: none;">
+        <div class="container">
+            <div class="page-header">
+                <button class="back-btn" onclick="showMainContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <h1>My Profile</h1>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="profileName">John Doe</h3>
+                        <p id="profileEmail">john@example.com</p>
+                        <p class="member-since">Member since: <span id="memberSince">Jan 2024</span></p>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <div>
+                                <span class="stat-number" id="totalOrders">12</span>
+                                <span class="stat-label">Total Orders</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            <div>
+                                <span class="stat-number" id="totalSpent">₹2,450</span>
+                                <span class="stat-label">Total Spent</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <span class="stat-number">4.8</span>
+                                <span class="stat-label">Avg Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-main">
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                        <button class="tab-btn" data-tab="orders">Order History</button>
+                        <button class="tab-btn" data-tab="addresses">Addresses</button>
+                        <button class="tab-btn" data-tab="preferences">Preferences</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div id="personal" class="tab-pane active">
+                            <form class="profile-form" id="profileForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" value="John">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" value="Doe">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profileEmailInput">Email</label>
+                                    <input type="email" id="profileEmailInput" name="email" value="john@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" value="+91 98765 43210">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <input type="date" id="dateOfBirth" name="dateOfBirth" value="1990-01-01">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                            </form>
+                        </div>
+                        
+                        <div id="orders" class="tab-pane">
+                            <div class="orders-list" id="ordersList">
+                                <!-- Orders will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div id="addresses" class="tab-pane">
+                            <div class="addresses-section">
+                                <div class="section-header">
+                                    <h3>Saved Addresses</h3>
+                                    <button class="btn btn-secondary" id="addAddressBtn">
+                                        <i class="fas fa-plus"></i> Add Address
+                                    </button>
+                                </div>
+                                <div class="addresses-list" id="addressesList">
+                                    <!-- Addresses will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="preferences" class="tab-pane">
+                            <form class="preferences-form" id="preferencesForm">
+                                <div class="form-group">
+                                    <label>Dietary Preferences</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="dietary" value="vegetarian">
+                                            <span>Vegetarian</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="dietary" value="vegan">
+                                            <span>Vegan</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="dietary" value="gluten-free">
+                                            <span>Gluten-Free</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notifications</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="notifications" value="email" checked>
+                                            <span>Email Notifications</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="notifications" value="sms" checked>
+                                            <span>SMS Notifications</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="notifications" value="push">
+                                            <span>Push Notifications</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Preferences</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal">
+            <div class="modal-header">
+                <h2 id="authTitle">Login</h2>
+                <button class="close-btn" id="closeAuthBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                    <p class="auth-link">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+                </form>
+                
+                <form id="signupForm" class="auth-form" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signupFirstName">First Name</label>
+                            <input type="text" id="signupFirstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupLastName">Last Name</label>
+                            <input type="text" id="signupLastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#">Terms & Conditions</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+                    <p class="auth-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" id="closeCartBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Delivery:</span>
+                        <span>₹50</span>
+                    </div>
+                    <div class="total-row total">
+                        <span>Total:</span>
+                        <span id="total">₹50</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i> Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-btn" id="closeOrderBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Delivery Address</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash on Delivery</option>
+                            <option value="upi">UPI</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="netbanking">Net Banking</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialInstructions">Special Instructions (Optional)</label>
+                        <textarea id="specialInstructions" name="specialInstructions" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelOrderBtn">Cancel</button>
+                <button class="btn btn-primary" id="placeOrderBtn">
+                    <i class="fas fa-check"></i> Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been confirmed and will be delivered in 15-20 minutes.</p>
+            <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+            <button class="btn btn-primary" id="closeSuccessBtn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-utensils"></i>
+                        <span>Fresh & Fast</span>
+                    </div>
+                    <p>Delivering happiness, one meal at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#feedback">Feedback</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> hello@freshfast.in</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for special offers!</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fresh & Fast. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
